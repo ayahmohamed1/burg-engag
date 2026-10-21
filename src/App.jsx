@@ -164,6 +164,10 @@ export default function App() {
       <main className="invitation-fullscreen-container">
         <article className="invitation-sheet">
 
+          {/* SIDE LACE BORDERS */}
+          <div className="side-lace-border side-lace-left" aria-hidden="true"></div>
+          <div className="side-lace-border side-lace-right" aria-hidden="true"></div>
+
           {/* TOP-LEFT: Royal Curtain Drape (Anchored high so it never blocks text) */}
           <div className="header-drape-left">
             <img src="./assets/curtain.png" alt="ستارة مخملية فاخرة" />
@@ -212,8 +216,6 @@ export default function App() {
 
             {/* 4. PHOTO GALLERY (SINGLE ELEGANT COUPLE PHOTO) */}
             <section className="photo-gallery-section">
-              <h3 className="gallery-section-title">{INVITATION_DATA.gallery.title}</h3>
-
               <div className="single-photo-card">
                 <img 
                   src={INVITATION_DATA.gallery.photoMainPortrait} 
@@ -253,10 +255,10 @@ export default function App() {
               <span className="divider-line"></span>
             </div>
 
-            {/* 6. COUNTDOWN TIMER (MATCHING EXACT STYLE OF USER IMAGE 1) */}
-            <section className="countdown-container-elegant">
+            {/* 6. COUNTDOWN TIMER (FROM LEFT TO RIGHT: DAYS, HOURS, MINUTES, SECONDS) */}
+            <section className="countdown-container-elegant" dir="ltr">
               <h4 className="countdown-title-tag">— COUNTDOWN —</h4>
-              <div className="countdown-grid-four">
+              <div className="countdown-grid-four" dir="ltr">
                 <div className="countdown-unit-col">
                   <span className="unit-number-serif">{countdown.days}</span>
                   <span className="unit-label-caps">DAYS</span>
@@ -289,20 +291,6 @@ export default function App() {
               <h3 className="venue-name-bold">{INVITATION_DATA.location.venueName}</h3>
               <p className="hotel-name-sub">{INVITATION_DATA.location.hotelName}</p>
               <p className="address-full-text">{INVITATION_DATA.location.address}</p>
-
-              {/* Embedded Google Map (Square and Compact) */}
-              <div className="map-frame-box-square">
-                <iframe
-                  src={INVITATION_DATA.location.mapEmbedIframe}
-                  width="100%"
-                  height="260"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Wedding Venue Location Map"
-                ></iframe>
-              </div>
 
               {/* Direct Maps App Button (IN ENGLISH AS REQUESTED) */}
               <a 

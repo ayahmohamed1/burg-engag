@@ -40,8 +40,11 @@
 html, body {
   width: 100%;
   min-height: 100%;
-  background-color: var(--bg-handmade-paper);
-  background-image: radial-gradient(circle at 50% 50%, #F5F1EB 0%, #EFEBE4 70%, #E8E2D9 100%);
+  background-color: #F8F5EE;
+  background-image: url('/assets/lace_background.jpg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 580px auto;
   color: var(--color-burgundy-deep);
   font-family: var(--font-arabic-body);
   line-height: 1.6;
@@ -265,8 +268,10 @@ html, body {
 .invitation-fullscreen-container {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-handmade-paper);
-  background-image: radial-gradient(circle at 50% 0%, #F5F1EB 0%, #EFEBE4 70%, #E8E2D9 100%);
+  background-image: url('/assets/lace_background.jpg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 580px auto;
   display: flex;
   justify-content: center;
   padding: 0 0 120px 0;
@@ -277,12 +282,42 @@ html, body {
   width: 100%;
   max-width: 580px;
   min-height: 100vh;
-  background-color: var(--bg-card);
+  background-color: #FAF7F2;
+  background-image: 
+    linear-gradient(rgba(250, 247, 242, 0.94), rgba(250, 247, 242, 0.94)),
+    url('/assets/lace_background.jpg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  box-shadow: 0 0 50px rgba(78, 14, 26, 0.22);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+/* SIDE LACE BORDERS ON BOTH SIDES */
+.side-lace-border {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 3;
+  pointer-events: none;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  opacity: 0.92;
+}
+
+.side-lace-left {
+  left: 0;
+  background-image: url('/assets/side_lace_left.png');
+}
+
+.side-lace-right {
+  right: 0;
+  background-image: url('/assets/side_lace_right.png');
 }
 
 /* TOP-LEFT CURTAIN DRAPE: ENLARGED & FIRMLY ANCHORED TO TOP-LEFT CORNER */
@@ -469,16 +504,18 @@ html, body {
   font-weight: 600;
 }
 
-/* Single elegant rounded portrait card */
+/* Single elegant rounded portrait card with chic burgundy frame */
 .single-photo-card {
   width: 100%;
   max-width: 380px;
-  height: 380px;
-  border-radius: 24px;
+  height: 440px;
+  border-radius: 28px;
   overflow: hidden;
-  border: 1px solid var(--color-border-line);
-  box-shadow: 0 8px 25px rgba(78, 14, 26, 0.1);
-  background-color: #EEE;
+  border: 4px solid var(--color-burgundy-main);
+  outline: 2px solid rgba(212, 175, 55, 0.7);
+  outline-offset: -8px;
+  box-shadow: 0 16px 36px rgba(78, 14, 26, 0.28), 0 0 0 1px rgba(78, 14, 26, 0.15);
+  background-color: var(--color-burgundy-deep);
   position: relative;
 }
 
@@ -556,18 +593,19 @@ html, body {
 }
 
 /* ==========================================================
-   6. COUNTDOWN TIMER
+   6. COUNTDOWN TIMER (ENFORCED LTR DAYS -> HOURS -> MINS -> SECS)
    ========================================================== */
 .countdown-container-elegant {
   width: 100%;
   max-width: 460px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(6px);
   border: 1px solid var(--color-border-line);
   border-radius: 20px;
   padding: 24px 16px;
-  box-shadow: 0 4px 20px rgba(78, 14, 26, 0.05);
+  box-shadow: 0 4px 20px rgba(78, 14, 26, 0.08);
   margin: 8px 0;
+  direction: ltr !important;
 }
 
 .countdown-title-tag {
@@ -578,12 +616,14 @@ html, body {
   text-transform: uppercase;
   margin-bottom: 18px;
   font-weight: 600;
+  direction: ltr !important;
 }
 
 .countdown-grid-four {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  direction: ltr !important;
 }
 
 .countdown-unit-col {
@@ -591,12 +631,13 @@ html, body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  direction: ltr !important;
 }
 
 .countdown-unit-col:not(:last-child)::after {
   content: ':';
   position: absolute;
-  left: -6px;
+  right: -6px;
   top: 10%;
   font-family: var(--font-serif-luxury);
   font-size: 2.2rem;
@@ -786,12 +827,12 @@ html, body {
     max-width: 320px;
   }
 
-  .childhood-locket-img {
-    max-width: 240px;
+  .side-lace-border {
+    width: 32px;
+    opacity: 0.85;
   }
 
-  .map-frame-box-square {
-    width: 240px;
-    height: 240px;
+  .childhood-locket-img {
+    max-width: 240px;
   }
 }
